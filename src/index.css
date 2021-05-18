@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* repsInput and weightInput need only be a few digits wide. */
+#repsInput, #weightInput {
+  width: 4rem;
+}
