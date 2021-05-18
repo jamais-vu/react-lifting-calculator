@@ -1,5 +1,5 @@
 /** Calculates estimated one-rep max using the Epley formula. */
-export function epley1RM(reps, weight) {
+export function epley(reps, weight) {
   if (reps === 1) {
     return weight;
   } else {
