@@ -55,9 +55,6 @@ class Calculator extends React.Component {
         <Form
           onSubmit={(event) => this.handleSubmit(event)}
         />
-        {/* TODO: Remove. These are for debugging. */}
-        <div>Reps: {this.state.reps}</div>
-        <div>Weight: {this.state.weight}</div>
         <Table
           brzyckiMaxes={this.estimatedMaxes(brzycki)}
           epleyMaxes={this.estimatedMaxes(epley)}
