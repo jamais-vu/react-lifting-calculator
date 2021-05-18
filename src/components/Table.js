@@ -3,12 +3,14 @@ import {Row} from './Row';
 /** Table where columns are estimated maxes and percent of 1RM. */
 export function Table(props) {
   const rows = props.brzyckiMaxes.map((brzyckiMax, index) => {
+    const epleyMax = Math.round(props.epleyMaxes[index]);
+
     return (
       <Row
         key={index}
         reps={index + 1}
-        brzyckiMax={Math.round(brzyckiMax)}
-        epleyMax={Math.round(props.epleyMaxes[index])}
+        brzyckiMax={isNaN(brzyckiMax) ? '' : String(Math.round(brzyckiMax))}
+        epleyMax={isNaN(epleyMax) ? '' : String(epleyMax)}
         brzyckiPercent={formatAsPercent(props.brzyckiPercentages[index])}
         epleyPercent={formatAsPercent(props.epleyPercentages[index])}
       />

@@ -10,8 +10,8 @@ class Calculator extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      reps: 1,
-      weight: 1,
+      reps: NaN,
+      weight: NaN,
     }
   }
 
