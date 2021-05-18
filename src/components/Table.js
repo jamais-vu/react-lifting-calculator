@@ -5,6 +5,7 @@ export function Table(props) {
   const rows = props.brzyckiMaxes.map((brzyckiMax, index) => {
     return (
       <Row
+        key={index}
         reps={index + 1}
         brzyckiMax={Math.round(brzyckiMax)}
         epleyMax={Math.round(props.epleyMaxes[index])}
