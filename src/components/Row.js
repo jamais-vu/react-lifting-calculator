@@ -1,3 +1,4 @@
+/** A single row in the table. */
 export function Row(props) {
   return (
     <tr>

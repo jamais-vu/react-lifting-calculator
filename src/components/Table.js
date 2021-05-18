@@ -1,5 +1,6 @@
 import {Row} from './Row';
 
+/** Table where columns are estimated maxes and percent of 1RM. */
 export function Table(props) {
   const rows = props.brzyckiMaxes.map((brzyckiMax, index) => {
     return (
@@ -36,6 +37,7 @@ export function Table(props) {
   );
 }
 
+/** Formats the given decimal `n` as a percent, to 2 digits. */
 function formatAsPercent(n) {
   return `${Math.round(n * 100)}%`;
 }
