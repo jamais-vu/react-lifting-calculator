@@ -12,23 +12,23 @@ class Calculator extends React.Component {
     this.state = {
       reps: 1,
       weight: 1,
-      // brzycki: null,
-      // epley: null,
     }
   }
 
+  /** Sets `this.state` to user-inputted reps and weight, from form. */
   handleSubmit(event) {
     event.preventDefault();
-    console.log(event);
     this.setState({
       reps: event.target['0'].valueAsNumber,
       weight: event.target['1'].valueAsNumber,
     });
   }
 
+  // TODO: The arrays this returns can be pre-calculated in constructor.
   /** Calculates weight as a percentage of one-rep max, for 1 to `n` reps.
    *
-   * `func` is a function estimated one-rep max, e.g. brzycki or epley. */
+   * `func` is a function estimated one-rep max, e.g. brzycki or epley.
+   */
   percentagesOf1RM(func, n=10) {
     const percentages = [];
     for (let reps = 1; reps <= n; reps++) {
@@ -37,6 +37,10 @@ class Calculator extends React.Component {
     return percentages;
   }
 
+  /** Calculates estimated maxes based on current reps and weight.
+   *
+   * `func` is a function estimated one-rep max, e.g. brzycki or epley.
+   */
   estimatedMaxes(func) {
     const estimated1RM = func(this.state.reps, this.state.weight);
     const maxes = this.percentagesOf1RM(func).map((percent) => {
@@ -51,6 +55,7 @@ class Calculator extends React.Component {
         <Form
           onSubmit={(event) => this.handleSubmit(event)}
         />
+        {/* TODO: Remove. These are for debugging. */}
         <div>Reps: {this.state.reps}</div>
         <div>Weight: {this.state.weight}</div>
         <Table
