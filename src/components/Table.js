@@ -26,8 +26,8 @@ export function MaxesTable(props) {
       <MaxesRow
         key={index}
         reps={index + 1}
-        brzyckiMax={isNaN(brzyckiMax) ? '' : String(Math.round(brzyckiMax))}
-        epleyMax={isNaN(epleyMax) ? '' : String(epleyMax)}
+        brzyckiMax={isNaN(brzyckiMax) ? '' : brzyckiMax.toFixed(1)}
+        epleyMax={isNaN(epleyMax) ? '' : epleyMax.toFixed(1)}
         brzyckiPercent={formatAsPercent(props.brzyckiPercentages[index])}
         epleyPercent={formatAsPercent(props.epleyPercentages[index])}
       />

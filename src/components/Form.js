@@ -5,9 +5,9 @@ export function Form(props) {
     <form className="form" onSubmit={(event) => props.onSubmit(event)}>
       <label>
         Reps:
-        <input id="repsInput" type="number"/>
+        <input id="repsInput" type="number" min="1" max="20" step="1"/>
         Weight:
-        <input id="weightInput" type="number"/>
+        <input id="weightInput" type="number" min="1" step="0.1"/>
       </label>
       <Button variant="contained" type="submit">
         Submit
