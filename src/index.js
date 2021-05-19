@@ -29,7 +29,7 @@ class Calculator extends React.Component {
    *
    * `func` is a function estimated one-rep max, e.g. brzycki or epley.
    */
-  percentagesOf1RM(func, n=10) {
+  percentagesOf1RM(func, n=20) {
     const percentages = [];
     for (let reps = 1; reps <= n; reps++) {
       percentages.push(100 / func(reps, 100));
