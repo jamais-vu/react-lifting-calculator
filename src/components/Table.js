@@ -1,12 +1,28 @@
-import {Row} from './Row';
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+
+import {MaxesRow} from './Row';
+
+const useStyles = makeStyles({
+  table: {
+    minWidth: 400,
+    maxWidth: 650
+  },
+});
 
 /** Table where columns are estimated maxes and percent of 1RM. */
-export function Table(props) {
+export function MaxesTable(props) {
   const rows = props.brzyckiMaxes.map((brzyckiMax, index) => {
     const epleyMax = Math.round(props.epleyMaxes[index]);
 
     return (
-      <Row
+      <MaxesRow
         key={index}
         reps={index + 1}
         brzyckiMax={isNaN(brzyckiMax) ? '' : String(Math.round(brzyckiMax))}
@@ -17,26 +33,30 @@ export function Table(props) {
     );
   });
 
+  const classes = useStyles();
+
   return (
-    <table>
-      <thead>
-        <tr>
-          <th></th>
-          <th colSpan="2">Estimated Max</th>
-          <th colSpan="2">Percent of 1RM</th>
-        </tr>
-        <tr>
-          <th>Reps</th>
-          <th>Brzycki</th>
-          <th>Epley</th>
-          <th>Brzycki</th>
-          <th>Epley</th>
-        </tr>
-      </thead>
-      <tbody>
-        {rows}
-      </tbody>
-    </table>
+    <TableContainer component={Paper}>
+      <Table className={classes.table} size="small" aria-label="maxes table">
+        <TableHead>
+          <TableRow>
+            <TableCell></TableCell> {/* intentionally-blank cell */}
+            <TableCell colspan="2" align="center">Estimated Max</TableCell>
+            <TableCell colSpan="2" align="center">Percent of 1RM</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell align="right">Reps</TableCell>
+            <TableCell align="right">Brzycki</TableCell>
+            <TableCell align="right">Epley</TableCell>
+            <TableCell align="right">Brzycki</TableCell>
+            <TableCell align="right">Epley</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {rows}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 }
 

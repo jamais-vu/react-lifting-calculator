@@ -1,12 +1,15 @@
+import TableCell from '@material-ui/core/TableCell';
+import TableRow from '@material-ui/core/TableRow';
+
 /** A single row in the table. */
-export function Row(props) {
+export function MaxesRow(props) {
   return (
-    <tr>
-      <td>{props.reps}</td>
-      <td>{props.brzyckiMax}</td>
-      <td>{props.epleyMax}</td>
-      <td>{props.brzyckiPercent}</td>
-      <td>{props.epleyPercent}</td>
-    </tr>
+    <TableRow key={props.key}>
+      <TableCell align="right">{props.reps}</TableCell>
+      <TableCell align="right">{props.brzyckiMax}</TableCell>
+      <TableCell align="right">{props.epleyMax}</TableCell>
+      <TableCell align="right">{props.brzyckiPercent}</TableCell>
+      <TableCell align="right">{props.epleyPercent}</TableCell>
+    </TableRow>
   );
 }

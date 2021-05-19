@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Form} from './components/Form';
-import {Table} from './components/Table';
+import {MaxesTable} from './components/Table';
 import {brzycki} from './util/brzycki';
 import {epley} from './util/epley';
 import './index.css';
@@ -55,7 +55,7 @@ class Calculator extends React.Component {
         <Form
           onSubmit={(event) => this.handleSubmit(event)}
         />
-        <Table
+        <MaxesTable
           brzyckiMaxes={this.estimatedMaxes(brzycki)}
           epleyMaxes={this.estimatedMaxes(epley)}
           brzyckiPercentages={this.percentagesOf1RM(brzycki)}
