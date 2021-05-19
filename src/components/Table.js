@@ -12,7 +12,8 @@ import {MaxesRow} from './Row';
 const useStyles = makeStyles({
   table: {
     minWidth: 400,
-    maxWidth: 650
+    maxWidth: 650,
+    margin: 'auto'
   },
 });
 
@@ -40,8 +41,8 @@ export function MaxesTable(props) {
       <Table className={classes.table} size="small" aria-label="maxes table">
         <TableHead>
           <TableRow>
-            <TableCell></TableCell> {/* intentionally-blank cell */}
-            <TableCell colspan="2" align="center">Estimated Max</TableCell>
+            <TableCell></TableCell>{/* intentionally-blank cell */}
+            <TableCell colSpan="2" align="center">Estimated Max</TableCell>
             <TableCell colSpan="2" align="center">Percent of 1RM</TableCell>
           </TableRow>
           <TableRow>
