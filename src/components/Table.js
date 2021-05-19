@@ -20,7 +20,7 @@ const useStyles = makeStyles({
 /** Table where columns are estimated maxes and percent of 1RM. */
 export function MaxesTable(props) {
   const rows = props.brzyckiMaxes.map((brzyckiMax, index) => {
-    const epleyMax = Math.round(props.epleyMaxes[index]);
+    const epleyMax = props.epleyMaxes[index];
 
     return (
       <MaxesRow
