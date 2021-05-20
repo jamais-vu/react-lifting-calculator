@@ -1,10 +1,22 @@
 body {
-  margin: 0;
+  /* Font stuff */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Formatting stuff */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+header {
+  display: flex;
+  justify-content: center;
 }
 
 code {
@@ -15,4 +27,13 @@ code {
 /* repsInput and weightInput need only be a few digits wide. */
 #repsInput, #weightInput {
   width: 4rem;
+}
+
+/* Center form inputs and button. */
+#repsAndWeightForm {
+  margin: 5%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
