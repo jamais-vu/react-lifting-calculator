@@ -11,10 +11,16 @@ import {MaxesRow} from './Row';
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 400,
-    maxWidth: 650,
-    margin: 'auto'
+    // minWidth: 400,
+    // maxWidth: 650,
+    // margin: 'auto'
   },
+  thead: {
+    backgroundColor: 'lightgray',
+  },
+  headerCell: {
+    fontWeight: 'bold',
+  }
 });
 
 /** Table where columns are estimated maxes and percent of 1RM. */
@@ -39,18 +45,18 @@ export function MaxesTable(props) {
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} size="small" aria-label="maxes table">
-        <TableHead>
+        <TableHead className={classes.thead}>
           <TableRow>
             <TableCell></TableCell>{/* intentionally-blank cell */}
             <TableCell colSpan="2" align="center">Estimated Max</TableCell>
             <TableCell colSpan="2" align="center">Percent of 1RM</TableCell>
           </TableRow>
-          <TableRow>
-            <TableCell align="right">Reps</TableCell>
-            <TableCell align="right">Brzycki</TableCell>
-            <TableCell align="right">Epley</TableCell>
-            <TableCell align="right">Brzycki</TableCell>
-            <TableCell align="right">Epley</TableCell>
+          <TableRow className={classes.headers}>
+            <TableCell align="right" className={classes.headerCell}>Reps</TableCell>
+            <TableCell align="right" className={classes.headerCell}>Brzycki</TableCell>
+            <TableCell align="right" className={classes.headerCell}>Epley</TableCell>
+            <TableCell align="right" className={classes.headerCell}>Brzycki</TableCell>
+            <TableCell align="right" className={classes.headerCell}>Epley</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
