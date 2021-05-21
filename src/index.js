@@ -5,6 +5,7 @@ import {Form} from './components/Form';
 import {MaxesTable} from './components/Table';
 import {brzycki} from './util/brzycki';
 import {epley} from './util/epley';
+import {formatAsPercent} from './util/formatAsPercent';
 import {zip} from './util/zip';
 import './index.css';
 
@@ -51,20 +52,31 @@ class Calculator extends React.Component {
     return maxes;
   }
 
+  /** Returns a csv-formatted string of the data used for the table. */
   handleDownloadCSV() {
+    /* Initialize csv string with column headers. */
     let csv = 'Reps,Brzycki Max,Epley Max,Bryzcki Percentage,Epley Percentage\n';
-    const zipped = zip(
-      this.estimatedMaxes(brzycki),
-      this.estimatedMaxes(epley),
-      this.percentagesOf1RM(brzycki),
-      this.percentagesOf1RM(epley),
+
+    /* Create an array of rep counts, from 1 to 20. */
+    let reps = [];
+    for (let i = 1; i <= 20; i++) {
+      reps.push(i);
+    }
+
+    /* Create an array of rows containing data values for each column. */
+    const rows = zip(
+      reps,
+      this.estimatedMaxes(brzycki).map(n => n.toFixed(1)),
+      this.estimatedMaxes(epley).map(n => n.toFixed(1)),
+      this.percentagesOf1RM(brzycki).map(n => formatAsPercent(n)),
+      this.percentagesOf1RM(epley).map(n => formatAsPercent(n)),
     );
 
-    for (let row of zipped) {
+    /* Convert each row to a comma-separated string, ending in a newline. */
+    for (let row of rows) {
       csv += row.join(',') + '\n'
     }
 
-    console.log(csv);
     return csv;
   }
 
