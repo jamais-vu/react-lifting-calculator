@@ -8,6 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 
 import {MaxesRow} from './Row';
+import {formatAsPercent} from '../util/formatAsPercent';
 
 const useStyles = makeStyles({
   table: {
@@ -65,9 +66,4 @@ export function MaxesTable(props) {
       </Table>
     </TableContainer>
   );
-}
-
-/** Formats the given decimal `n` as a percent, to 2 digits. */
-function formatAsPercent(n) {
-  return `${Math.round(n * 100)}%`;
 }
