@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {DownloadAsCSV} from './components/DownloadAsCSV';
 import {Form} from './components/Form';
 import {MaxesTable} from './components/Table';
 import {brzycki} from './util/brzycki';
 import {epley} from './util/epley';
+import {zip} from './util/zip';
 import './index.css';
 
 class Calculator extends React.Component {
@@ -49,9 +51,27 @@ class Calculator extends React.Component {
     return maxes;
   }
 
+  handleDownloadCSV() {
+    let csv = 'Reps,Brzycki Max,Epley Max,Bryzcki Percentage,Epley Percentage\n';
+    const zipped = zip(
+      this.estimatedMaxes(brzycki),
+      this.estimatedMaxes(epley),
+      this.percentagesOf1RM(brzycki),
+      this.percentagesOf1RM(epley),
+    );
+
+    for (let row of zipped) {
+      csv += row.join(',') + '\n'
+    }
+
+    console.log(csv);
+    return csv;
+  }
+
   render() {
     return (
       <div>
+        <DownloadAsCSV data={this.handleDownloadCSV()}/>
         <Form
           onSubmit={(event) => this.handleSubmit(event)}
         />
